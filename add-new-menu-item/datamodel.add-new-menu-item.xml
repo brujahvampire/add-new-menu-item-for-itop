@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+  <constants>
+  </constants>
+  <classes>
+  </classes>
+  <menus>
+    <menu id="HDMenu" xsi:type="DashboardMenuNode" _delta="define">
+      <rank>0</rank>
+      <parent>RequestManagement</parent>
+      <definition>
+        <title></title>
+        <layout>DashboardLayoutOneCol</layout>
+        <auto_reload>
+          <enabled>true</enabled>
+          <interval>60</interval>
+        </auto_reload>
+        <cells>
+          <cell id="0">
+            <rank>0</rank>
+            <dashlets>
+              <dashlet id="8" xsi:type="DashletObjectList">
+                <rank>0</rank>
+                <title>UI:HDMenu:NewRequests</title>
+                <query>SELECT UserRequest WHERE status = 'new' OR agent_id = 0</query>
+                <menu>false</menu>
+              </dashlet>
+            </dashlets>
+          </cell>
+          <cell id="1">
+            <rank>1</rank>
+            <dashlets>
+              <dashlet id="9" xsi:type="DashletObjectList">
+                <rank>0</rank>
+                <title>UI:HDMenu:AssignedRequests</title>
+                <query>SELECT UserRequest WHERE agent_id != 0 AND status != 'closed'</query>
+                <menu>false</menu>
+              </dashlet>
+            </dashlets>
+          </cell>
+          </cells>
+      </definition>
+    </menu>
+  </menus>
+  <user_rights>
+    <groups>
+    </groups>
+    <profiles>
+    </profiles>
+  </user_rights>
+</itop_design>
